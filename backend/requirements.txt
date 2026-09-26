@@ -1,0 +1,11 @@
+# Runtime dependencies for the Afranthie Construction backend.
+# Security (rate limiting, CORS, CSRF) is implemented with Django's own
+# primitives plus a small amount of first-party code — no third-party
+# security packages required.
+
+Django>=5.2,<5.3
+python-dotenv>=1.0
+whitenoise>=6.6          # serves Django admin static files in production
+
+# --- Production extras (install on the server) ---
+# gunicorn>=22.0        # WSGI server  (pip install on the host, or uncomment here)

@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("./assets/fonts/archivo-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("./assets/fonts/archivo-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Martian Mono";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("./assets/fonts/martianmono-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Martian Mono";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("./assets/fonts/martianmono-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@theme {
+  --color-paper: #f5f2ec;
+  --color-paper-dim: #ece7db;
+  --color-mount: #ffffff;
+
+  --color-ink: #123a7a;
+  --color-ink-deep: #0e2f63;
+  --color-ink-bright: #1e5aa8;
+  --color-sky-ink: #cbd9ec; /* secondary text on ink surfaces */
+
+  --color-signal: #c8102e;
+  --color-signal-deep: #a20c24;
+
+  --color-graphite: #23262b;
+  --color-graphite-soft: #55585f;
+  --color-hair: #d8d3c7;
+  --color-hair-strong: #c3bcab;
+
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-sans:
+    "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:
+    "Martian Mono", ui-monospace, "SFMono-Regular", "Consolas", monospace;
+
+  --ease-mount: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --sheet-rev: "REV 2026";
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-graphite);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+    text-wrap: balance;
+    color: var(--color-ink-deep);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  
+  ::selection {
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+
+  html {
+    scrollbar-color: var(--color-hair-strong) var(--color-paper);
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-hair-strong);
+    border: 3px solid var(--color-paper);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a9a08a;
+  }
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: from-font;
+  }
+
+  
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  ::placeholder {
+    color: var(--color-graphite-soft);
+    opacity: 1;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+@layer components {
+  
+  .sheet-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  
+  .board-frame {
+    position: relative;
+    background-color: var(--color-mount);
+    border: 1px solid var(--color-hair-strong);
+  }
+  .board-frame::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--color-hair);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .mount {
+    opacity: 1;
+  }
+
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    
+    .mount {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.7s var(--ease-mount),
+        transform 0.9s var(--ease-mount),
+        clip-path 0.9s var(--ease-mount);
+      will-change: opacity, transform;
+    }
+    .mount.is-mounted {
+      opacity: 1;
+      transform: none;
+      clip-path: inset(0 0 0 0);
+    }
+
+    
+    .mount-frame {
+      transform: none;
+      clip-path: inset(0 100% 0 0);
+    }
+    .mount-frame.is-mounted {
+      clip-path: inset(0 0 0 0);
+    }
+
+    
+    .mount-line {
+      transform: none;
+      opacity: 1;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 1s var(--ease-mount);
+    }
+    .mount-line.is-mounted {
+      clip-path: inset(0 0 0 0);
+    }
+
+    
+    .mount-rows > * {
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 0.5s var(--ease-mount),
+        transform 0.6s var(--ease-mount);
+    }
+    .mount-rows.is-mounted > * {
+      opacity: 1;
+      transform: none;
+    }
+    .mount-rows.is-mounted > *:nth-child(2) {
+      transition-delay: 0.05s;
+    }
+    .mount-rows.is-mounted > *:nth-child(3) {
+      transition-delay: 0.1s;
+    }
+    .mount-rows.is-mounted > *:nth-child(4) {
+      transition-delay: 0.15s;
+    }
+    .mount-rows.is-mounted > *:nth-child(5) {
+      transition-delay: 0.2s;
+    }
+    .mount-rows.is-mounted > *:nth-child(6) {
+      transition-delay: 0.25s;
+    }
+    .mount-rows.is-mounted > *:nth-child(7) {
+      transition-delay: 0.3s;
+    }
+    .mount-rows.is-mounted > *:nth-child(8) {
+      transition-delay: 0.35s;
+    }
+
+    .mount-delay-1 {
+      transition-delay: 0.08s;
+    }
+    .mount-delay-2 {
+      transition-delay: 0.16s;
+    }
+    .mount-delay-3 {
+      transition-delay: 0.24s;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}
