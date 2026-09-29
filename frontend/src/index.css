@@ -90,6 +90,7 @@
     font-synthesis-weight: none;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    width: 100vw;
   }
 
   h1,
